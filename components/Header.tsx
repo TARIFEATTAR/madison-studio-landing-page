@@ -15,7 +15,6 @@ const Header: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Features', href: '#features' },
     { name: 'How It Works', href: '#how-it-works' },
     { name: 'Pricing', href: '#/pricing' },
   ];
@@ -55,7 +54,7 @@ const Header: React.FC = () => {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-10">
+        <nav className="hidden md:flex items-center space-x-6 lg:space-x-10">
           {navLinks.map((link) => (
             <a 
               key={link.name} 
@@ -69,7 +68,7 @@ const Header: React.FC = () => {
         </nav>
 
         {/* Desktop CTAs */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-4 lg:gap-8">
           <a 
             href="https://app.madisonstudio.io/auth" 
             className="text-lg font-medium text-ink-black hover:text-deep-green transition-colors"
@@ -118,18 +117,6 @@ const Header: React.FC = () => {
             >
               Log in
             </a>
-            <div className="pt-4 space-y-4">
-              <Button 
-                variant="primary" 
-                size="md" 
-                className="w-full"
-                href="https://cal.com/team/madison-studio/demo" 
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Book a Madison Demo
-              </Button>
-            </div>
           </div>
         </div>
       )}

@@ -15,6 +15,7 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 import HelpCenter from './components/HelpCenter';
 import Pricing from './components/Pricing';
+import SecretaryChat from './components/SecretaryChat';
 
 // Extract Home Page for cleaner routing and rendering
 const Home: React.FC = () => (
@@ -33,6 +34,7 @@ const Home: React.FC = () => (
       <FinalCTA />
     </main>
     <Footer />
+    <SecretaryChat />
   </div>
 );
 
@@ -75,21 +77,29 @@ const App: React.FC = () => {
   // Normalized routing logic
   const route = currentHash || '#/';
 
+  // Common wrapper to include the Chat on all pages
+  const PageWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+    <>
+      {children}
+      <SecretaryChat />
+    </>
+  );
+
   // Exact match or starts with for nested routes
   if (route.startsWith('#/pricing')) {
-    return <Pricing />;
+    return <PageWrapper><Pricing /></PageWrapper>;
   }
   
   if (route.startsWith('#/privacy')) {
-    return <PrivacyPolicy />;
+    return <PageWrapper><PrivacyPolicy /></PageWrapper>;
   }
 
   if (route.startsWith('#/terms')) {
-    return <TermsOfService />;
+    return <PageWrapper><TermsOfService /></PageWrapper>;
   }
 
   if (route.startsWith('#/help')) {
-    return <HelpCenter />;
+    return <PageWrapper><HelpCenter /></PageWrapper>;
   }
 
   // Default to Home Page
