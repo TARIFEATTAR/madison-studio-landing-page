@@ -1,24 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Sparkles } from 'lucide-react';
+import React from 'react';
+import { CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
 
 const MadisonPersona: React.FC = () => {
-  const [displayedText, setDisplayedText] = useState('');
-  const fullText = "This email is strong, but the opening drifts from your usual tone. Let’s bring back your brand’s confident, grounded voice, tighten the body for clarity, and add one specific proof point from your last launch.";
-  
-  useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index < fullText.length) {
-        setDisplayedText((prev) => prev + fullText.charAt(index));
-        index++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 25); // Typing speed
-
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <section className="py-32 bg-luxury-tan text-ink-black overflow-hidden relative">
       {/* Decorative background element */}
@@ -44,50 +27,100 @@ const MadisonPersona: React.FC = () => {
             </div>
           </div>
 
-          {/* Right: Chat UI Visualization */}
-          <div className="flex-1 w-full max-w-xl">
-            <div className="bg-white rounded-sm p-8 shadow-2xl text-ink-black font-sans text-lg border border-stone-200">
-              
-              {/* User Message */}
-              <div className="flex justify-end mb-8">
-                <div className="bg-stone-100 py-5 px-8 rounded-sm rounded-tr-none max-w-[85%] shadow-sm">
-                  <p className="text-ink-black/80 text-xl">Can you check this email draft? It feels a bit too salesy.</p>
+          {/* Right: Expertise Visualization (Brand DNA Dashboard) */}
+          <div className="flex-1 w-full max-w-xl relative">
+            {/* Main Dashboard Card */}
+            <div className="bg-white rounded-sm shadow-2xl border border-stone-200 overflow-hidden relative z-10">
+              {/* Header */}
+              <div className="bg-stone-50 border-b border-stone-100 px-6 py-4 flex justify-between items-center">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck size={18} className="text-deep-green" />
+                  <span className="text-xs font-bold tracking-widest text-ink-black uppercase">Brand Guardrails</span>
+                </div>
+                <div className="flex items-center gap-1.5 bg-white border border-stone-200 px-2 py-1 rounded-full">
+                  <div className="w-2 h-2 rounded-full bg-deep-green animate-pulse"></div>
+                  <span className="text-[10px] font-bold text-deep-green">Active</span>
                 </div>
               </div>
 
-              {/* Madison Response */}
-              <div className="flex items-start gap-5">
-                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-deep-green flex items-center justify-center text-white shadow-md border-2 border-stone-200">
-                  <span className="font-serif font-bold text-2xl">M</span>
-                </div>
-                <div className="space-y-4 max-w-[90%]">
-                  <div className="bg-white border border-stone-100 py-6 px-8 rounded-sm rounded-tl-none shadow-md relative min-h-[140px]">
-                    <Sparkles size={20} className="absolute top-5 right-5 text-muted-gold animate-pulse-slow" />
-                    <p className="text-ink-black/90 leading-relaxed mb-4 text-xl">
-                      "{displayedText}"
-                      <span className="inline-block w-2 h-6 ml-1.5 bg-deep-green animate-pulse align-middle"></span>
-                    </p>
-                    {displayedText.length === fullText.length && (
-                      <p className="text-ink-black/90 leading-relaxed font-medium animate-fade-in text-lg">
-                        "Here’s an updated version with comments on each change."
-                      </p>
-                    )}
+              {/* Body */}
+              <div className="p-8 space-y-8">
+                
+                {/* Voice Analysis */}
+                <div>
+                  <div className="flex justify-between items-end mb-3">
+                    <h4 className="font-serif text-xl text-ink-black">Voice Fingerprint</h4>
+                    <span className="text-xs text-stone-400 uppercase tracking-wider">Match Score: 98%</span>
                   </div>
-                  
-                  {/* Simulated Attachment */}
-                  <div className={`bg-stone-50 border border-stone-200 rounded-sm p-4 flex items-center gap-4 w-4/5 hover:bg-stone-100 cursor-pointer transition-all duration-500 ${displayedText.length === fullText.length ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-                    <div className="w-12 h-14 bg-white border border-stone-200 rounded-sm shadow-sm flex items-center justify-center">
-                      <span className="text-xs font-bold text-deep-green uppercase">DOC</span>
+                  <div className="space-y-3">
+                    <div className="group">
+                      <div className="flex justify-between text-xs font-medium mb-1 text-stone-500">
+                        <span>Sophistication</span>
+                        <span>High</span>
+                      </div>
+                      <div className="h-1.5 w-full bg-stone-100 rounded-full overflow-hidden">
+                        <div className="h-full bg-deep-green w-[95%] rounded-full"></div>
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <div className="text-base font-semibold text-ink-black">Launch_Email_v2_Madison.docx</div>
-                      <div className="text-sm text-soft-gray">Edited just now</div>
+                    <div className="group">
+                      <div className="flex justify-between text-xs font-medium mb-1 text-stone-500">
+                        <span>Empathy</span>
+                        <span>Medium-High</span>
+                      </div>
+                      <div className="h-1.5 w-full bg-stone-100 rounded-full overflow-hidden">
+                        <div className="h-full bg-muted-gold w-[75%] rounded-full"></div>
+                      </div>
+                    </div>
+                    <div className="group">
+                      <div className="flex justify-between text-xs font-medium mb-1 text-stone-500">
+                        <span>Urgency</span>
+                        <span>Low</span>
+                      </div>
+                      <div className="h-1.5 w-full bg-stone-100 rounded-full overflow-hidden">
+                        <div className="h-full bg-stone-300 w-[20%] rounded-full"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
+                {/* Divider */}
+                <div className="h-px bg-stone-100"></div>
+
+                {/* Guidelines Active */}
+                <div>
+                  <h4 className="font-serif text-xl text-ink-black mb-4">Active Guidelines</h4>
+                  <div className="grid grid-cols-1 gap-3">
+                    <div className="flex items-center gap-3 p-3 bg-stone-50 rounded-sm border border-stone-100">
+                       <CheckCircle2 size={16} className="text-deep-green" />
+                       <span className="text-sm text-ink-black/80">Use "sensory" language for textures.</span>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-stone-50 rounded-sm border border-stone-100">
+                       <CheckCircle2 size={16} className="text-deep-green" />
+                       <span className="text-sm text-ink-black/80">Avoid clichés like "unlock" or "unleash".</span>
+                    </div>
+                     <div className="flex items-center gap-3 p-3 bg-stone-50 rounded-sm border border-stone-100">
+                       <CheckCircle2 size={16} className="text-deep-green" />
+                       <span className="text-sm text-ink-black/80">Maintain 3rd person editorial distance.</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
+
+            {/* Floating Insight Card */}
+            <div className="absolute -bottom-6 -right-6 md:-right-12 w-64 bg-deep-green text-white p-5 rounded-sm shadow-xl border border-stone-700 z-20 animate-slide-up">
+               <div className="flex items-start gap-3">
+                 <Sparkles size={20} className="text-muted-gold flex-shrink-0 mt-0.5" />
+                 <div>
+                   <span className="text-[10px] font-bold uppercase tracking-widest text-muted-gold block mb-1">Strategic Insight</span>
+                   <p className="text-sm font-medium leading-relaxed">
+                     "The tone in the second paragraph drifts too casual. Let's elevate it to align with the Fall Reserve Collection persona."
+                   </p>
+                 </div>
+               </div>
+            </div>
+
           </div>
 
         </div>
