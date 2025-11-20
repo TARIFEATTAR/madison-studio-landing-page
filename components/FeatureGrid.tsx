@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { RefreshCw } from 'lucide-react';
+import ScrollReveal from './ui/ScrollReveal';
 
 interface FeatureProps {
   label: string;
@@ -131,14 +132,18 @@ const FeatureGrid: React.FC = () => {
   return (
     <section id="features" className="py-32 bg-stone-50 border-t border-stone-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-20 text-center max-w-4xl mx-auto">
-          <h2 className="font-serif text-5xl md:text-6xl text-ink-black mb-8">Your brand’s creative stack, in one studio.</h2>
-          <p className="text-ink-black/60 text-2xl">No more switching between Google Docs, ChatGPT, and Dropbox.</p>
-        </div>
+        <ScrollReveal>
+          <div className="mb-20 text-center max-w-4xl mx-auto">
+            <h2 className="font-serif text-5xl md:text-6xl text-ink-black mb-8">Your brand’s creative stack, in one studio.</h2>
+            <p className="text-ink-black/60 text-2xl">No more switching between Google Docs, ChatGPT, and Dropbox.</p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <FeatureCard key={index} {...feature} />
+            <ScrollReveal key={index} delay={`${index * 100}ms`} className="h-full">
+              <FeatureCard {...feature} />
+            </ScrollReveal>
           ))}
         </div>
       </div>

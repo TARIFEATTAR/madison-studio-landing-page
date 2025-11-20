@@ -18,7 +18,6 @@ const Header: React.FC = () => {
     { name: 'Features', href: '#features' },
     { name: 'How It Works', href: '#how-it-works' },
     { name: 'Pricing', href: '#/pricing' },
-    { name: 'Resources', href: '#/help' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -56,7 +55,7 @@ const Header: React.FC = () => {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex space-x-10">
+        <nav className="hidden md:flex items-center space-x-10">
           {navLinks.map((link) => (
             <a 
               key={link.name} 
@@ -70,10 +69,13 @@ const Header: React.FC = () => {
         </nav>
 
         {/* Desktop CTAs */}
-        <div className="hidden md:flex items-center space-x-4">
-           <Button variant="ghost" size="sm" className="font-normal">
-            Enter the Studio
-          </Button>
+        <div className="hidden md:flex items-center gap-6">
+          <a 
+            href="https://app.madisonstudio.io/auth" 
+            className="text-lg font-medium text-ink-black hover:text-deep-green transition-colors"
+          >
+            Log in
+          </a>
           <Button 
             variant="primary" 
             size="sm" 
@@ -110,6 +112,12 @@ const Header: React.FC = () => {
                 {link.name}
               </a>
             ))}
+            <a 
+              href="https://app.madisonstudio.io/auth"
+              className="block px-3 py-4 text-xl font-medium text-ink-black hover:bg-stone-100 rounded-md"
+            >
+              Log in
+            </a>
             <div className="pt-4 space-y-4">
               <Button 
                 variant="primary" 
@@ -120,9 +128,6 @@ const Header: React.FC = () => {
                 rel="noopener noreferrer"
               >
                 Book a Madison Demo
-              </Button>
-              <Button variant="outline" size="md" className="w-full">
-                Enter the Studio
               </Button>
             </div>
           </div>
