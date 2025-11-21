@@ -1,7 +1,7 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { GoogleGenAI } from "@google/genai";
-import { MessageSquare, X, Send, Sparkles, ArrowUp, Minimize2, Loader2 } from 'lucide-react';
-import Button from './ui/Button';
+import { MessageSquare, X, ArrowUp, Sparkles, Minimize2, Loader2 } from 'lucide-react';
 
 interface Message {
   role: 'user' | 'model';
@@ -29,35 +29,58 @@ const SecretaryChat: React.FC = () => {
     scrollToBottom();
   }, [messages, isOpen]);
 
-  // System Instruction / Knowledge Base
+  // Extended Knowledge Base derived from site content
   const SYSTEM_INSTRUCTION = `
-    You are the Concierge for Madison Studio, a luxury AI-powered brand operating system for beauty, fragrance, and creative e-commerce brands.
-    Your persona is sophisticated, efficient, and helpful—like a high-end hotel concierge or a trusted executive assistant. 
+    You are the Concierge for Madison Studio, a luxury AI-powered brand operating system.
+    Your persona is sophisticated, efficient, and helpful—like a high-end hotel concierge or a trusted executive assistant.
     
     **Your Goals:**
-    1. Qualify the user: If this is the start of the conversation, ensure you understand their brand type (e.g., beauty, fashion, agency) and their primary content challenge.
-    2. Answer questions about Madison Studio using the Knowledge Base below.
-    3. Encourage them to "Book a Demo" or "Enter the Studio" (Log in) if they seem interested.
+    1. Qualify the user: Ensure you understand their brand type (e.g., beauty, fashion, agency) and content challenges.
+    2. Answer questions using the Knowledge Base below.
+    3. Guide them to "Book a Demo" or "Enter the Studio" (Log in).
 
     **Knowledge Base:**
-    - **Product:** Madison Studio transforms scattered brand knowledge into a single living system that writes and creates exactly like the brand.
-    - **Key Features:**
-      - *Brand Brain:* Centralized knowledge base (voice, tone, products).
-      - *The Forge:* Content creation engine (blogs, emails, social).
-      - *Multiply:* Repurposing engine (turns 1 master piece into 10+ derivatives).
-      - *Image Studio:* AI product photography using Google Gemini & Imagen.
-      - *Calendar:* Content scheduling and planning.
-    - **Pricing:**
-      - *Atelier ($49/mo):* For independent creators.
-      - *Studio ($199/mo):* For growing brands (most popular).
-      - *Maison ($599/mo):* For agencies and holdings.
-    - **Audience:** Founders, marketing teams, creative agencies.
-    - **Tone:** Sophisticated, editorial, "old money" aesthetic, refined, minimalist. Avoid emojis unless necessary. Use sentence fragments for style. Be concise.
+    
+    **Identity:** 
+    Madison Studio is not generic AI. It is an AI Editorial Director that turns scattered brand knowledge into a single, living system. It is designed for beauty, fragrance, and creative e-commerce brands.
+
+    **Core Problems Solved:**
+    - Scattered content in docs/emails.
+    - Inconsistent brand voice from freelancers/AI.
+    - No central source of truth for products.
+    - "Generic" AI output that sounds robotic.
+
+    **Key Features:**
+    - **Brand Brain:** A centralized knowledge base that stores voice, tone, values, and products. It learns your "Voice Fingerprint".
+    - **The Forge:** Content creation engine for blogs, emails, social, press releases.
+    - **Multiply:** Repurposing engine. Turns 1 master piece (e.g., blog) into 10+ derivatives (tweets, emails, posts).
+    - **Image Studio:** AI product photography generator (uses Google Gemini/Imagen) that follows visual brand guidelines.
+    - **Calendar:** Schedule and organize content. Syncs with Google Calendar.
+    - **Marketplace:** Generate listings for Shopify, Etsy, TikTok Shop.
+
+    **Pricing Tiers:**
+    - **Atelier ($49/mo):** For independent creators. 1 org, 25 products, 50 master pieces.
+    - **Studio ($199/mo):** Most popular. For growing brands. 3 orgs, 100 products, unlimited master content, marketplace integrations.
+    - **Maison ($599/mo):** For agencies. Unlimited orgs/products/content, white-label options.
+    - *Note: Yearly billing saves ~20% (2 months free).*
+
+    **Brand Health:**
+    A score (0-100) tracking how well defined your brand is. Higher scores = better AI content.
+
+    **Integrations:**
+    Shopify, Google Calendar, Anthropic Claude, Google Gemini. (Coming soon: Klaviyo, Zapier).
+
+    **Tone Guidelines:**
+    - Sophisticated, editorial, "old money" aesthetic.
+    - Concise, precise, confident.
+    - Avoid emojis (use sparingly if needed).
+    - Use sentence fragments for stylistic effect.
+    - No "AI slop" (hype, exclamation marks, clichés).
 
     **Behavior:**
-    - If the user answers your qualification questions, acknowledge them briefly and ask how you can help with their content operations.
-    - If asked about technical details not in the knowledge base, politely suggest booking a demo for a technical deep dive.
-    - Act as a "velvet rope" policy: You are polite but exclusive. Madison isn't for everyone; it's for brands that care about quality.
+    - If the user answers your qualification question, acknowledge it and pivot to how Madison solves their specific problems.
+    - If asked technical questions not here, suggest booking a demo.
+    - Maintain the "Velvet Rope" vibe: We are for serious brands who care about quality.
   `;
 
   const handleSend = async () => {
@@ -72,23 +95,24 @@ const SecretaryChat: React.FC = () => {
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       
-      // Construct history for the API
-      // Map internal role 'model' to API role 'model' and 'user' to 'user'
-      const history = messages.map(m => ({
+      // Filter out the initial greeting from history to prevent role ordering issues,
+      // as the API expects User turn first usually, or strictly alternating.
+      // We provide the context of the conversation via the system instruction if needed, 
+      // or rely on the fact that the user just replied to the greeting.
+      const history = messages.slice(1).map(m => ({
         role: m.role,
         parts: [{ text: m.text }]
       }));
 
-      // Add the new user message
-      history.push({ role: 'user', parts: [{ text: userMessage }] });
-
+      // Add current message
+      // Note: In a real app, we should check token limits, but for this demo we assume short context.
+      
       const response = await ai.models.generateContent({
         model: 'gemini-3-pro-preview',
-        contents: history,
+        contents: [...history, { role: 'user', parts: [{ text: userMessage }] }],
         config: {
           systemInstruction: SYSTEM_INSTRUCTION,
-          temperature: 0.7, // Balanced creativity and precision
-          maxOutputTokens: 300, // Keep responses concise
+          temperature: 0.7,
         }
       });
 
@@ -141,7 +165,7 @@ const SecretaryChat: React.FC = () => {
               Madison Concierge
               <div className="w-2 h-2 bg-deep-green rounded-full animate-pulse"></div>
             </h3>
-            <p className="text-xs text-stone-400 uppercase tracking-widest">Agency Intelligence</p>
+            <p className="text-xs text-stone-400 uppercase tracking-widest">Gemini 3 Pro Preview</p>
           </div>
           <button 
             onClick={() => setIsOpen(false)}
@@ -174,7 +198,7 @@ const SecretaryChat: React.FC = () => {
                 <p className="whitespace-pre-wrap">{msg.text}</p>
               </div>
               {msg.role === 'model' && idx === messages.length - 1 && !hasInteracted && messages.length === 1 && (
-                <div className="mt-3 flex gap-2 animate-fade-in">
+                <div className="mt-3 flex flex-wrap gap-2 animate-fade-in">
                   <button 
                     onClick={() => { setInput("I manage a Beauty/Skincare brand."); handleSend(); }}
                     className="text-xs bg-white border border-stone-200 px-3 py-2 rounded-full hover:border-muted-gold hover:text-deep-green transition-colors text-stone-500"
@@ -186,6 +210,12 @@ const SecretaryChat: React.FC = () => {
                     className="text-xs bg-white border border-stone-200 px-3 py-2 rounded-full hover:border-muted-gold hover:text-deep-green transition-colors text-stone-500"
                   >
                     Agency
+                  </button>
+                   <button 
+                    onClick={() => { setInput("I'm a Founder."); handleSend(); }}
+                    className="text-xs bg-white border border-stone-200 px-3 py-2 rounded-full hover:border-muted-gold hover:text-deep-green transition-colors text-stone-500"
+                  >
+                    Founder
                   </button>
                 </div>
               )}
@@ -223,9 +253,6 @@ const SecretaryChat: React.FC = () => {
               {isLoading ? <Loader2 size={16} className="animate-spin" /> : <ArrowUp size={16} />}
             </button>
           </div>
-          <div className="mt-2 text-center">
-             <span className="text-[10px] text-stone-400 uppercase tracking-wider">Powered by Gemini 3 Pro</span>
-          </div>
         </div>
       </div>
     </>
@@ -233,3 +260,4 @@ const SecretaryChat: React.FC = () => {
 };
 
 export default SecretaryChat;
+    

@@ -7,8 +7,8 @@ const Footer: React.FC = () => {
     { name: 'Pricing', href: '#/pricing' },
     { name: 'Resources', href: '#/help' },
     { name: 'Help Center', href: '#/help' },
-    { name: 'Privacy', href: '#/privacy' },
-    { name: 'Terms', href: '#/terms' },
+    { name: 'Privacy Policy', href: '#/privacy' },
+    { name: 'Terms of Service', href: '#/terms' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -30,7 +30,12 @@ const Footer: React.FC = () => {
           
           {/* Brand */}
           <div className="text-center md:text-left">
-            <h3 className="font-serif text-3xl tracking-widest uppercase mb-3 text-white">Madison Studio</h3>
+            {/* Logo Image */}
+            <img 
+              src="https://placehold.co/480x120/1A1A1A/FFFFFF?text=Madison+Studio&font=playfair-display" 
+              alt="Madison Studio" 
+              className="h-24 mb-6 mx-auto md:mx-0 md:-ml-10 object-contain opacity-90 hover:opacity-100 transition-opacity"
+            />
             <p className="text-stone-400 text-base tracking-wide">Authentic Intelligence by Asala</p>
           </div>
 
