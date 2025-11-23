@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { GoogleGenAI } from "@google/genai";
 import { MessageSquare, X, ArrowUp, Sparkles, Minimize2, Loader2 } from 'lucide-react';
@@ -38,6 +37,12 @@ const SecretaryChat: React.FC = () => {
     1. Qualify the user: Ensure you understand their brand type (e.g., beauty, fashion, agency) and content challenges.
     2. Answer questions using the Knowledge Base below.
     3. Guide them to "Book a Demo" or "Enter the Studio" (Log in).
+
+    **IMPORTANT FORMATTING RULES:**
+    - Do NOT use markdown formatting.
+    - Do NOT use bold (**text**) or italics (*text*).
+    - Do NOT use headers (# Header).
+    - Use plain text only.
 
     **Knowledge Base:**
     
@@ -95,18 +100,12 @@ const SecretaryChat: React.FC = () => {
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       
-      // Filter out the initial greeting from history to prevent role ordering issues,
-      // as the API expects User turn first usually, or strictly alternating.
-      // We provide the context of the conversation via the system instruction if needed, 
-      // or rely on the fact that the user just replied to the greeting.
+      // Filter out the initial greeting from history to prevent role ordering issues
       const history = messages.slice(1).map(m => ({
         role: m.role,
         parts: [{ text: m.text }]
       }));
 
-      // Add current message
-      // Note: In a real app, we should check token limits, but for this demo we assume short context.
-      
       const response = await ai.models.generateContent({
         model: 'gemini-3-pro-preview',
         contents: [...history, { role: 'user', parts: [{ text: userMessage }] }],
@@ -134,14 +133,25 @@ const SecretaryChat: React.FC = () => {
     }
   };
 
+  // Helper to strip markdown aggressively
+  const cleanMessage = (text: string) => {
+    return text
+      .replace(/\*\*/g, '')   // Remove all double asterisks
+      .replace(/\*/g, '')     // Remove all single asterisks
+      .replace(/__/g, '')     // Remove double underscores
+      .replace(/_/g, '')      // Remove single underscores
+      .replace(/#+\s/g, '')   // Remove headers
+      .replace(/`/g, '');     // Remove backticks
+  };
+
   return (
     <>
       {/* Floating Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-105 flex items-center justify-center ${
+        className={`fixed bottom-6 right-6 z-[100] p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-105 flex items-center justify-center ${
           isOpen 
-            ? 'bg-white text-ink-black border border-stone-200 rotate-90' 
+            ? 'bg-white text-ink-black border border-stone-200 rotate-90 md:rotate-90 rotate-0 hidden md:flex' // Hide toggle on mobile when open
             : 'bg-deep-green text-white border border-transparent'
         }`}
         aria-label="Open Concierge"
@@ -151,12 +161,17 @@ const SecretaryChat: React.FC = () => {
 
       {/* Chat Window */}
       <div
-        className={`fixed bottom-24 right-6 z-50 w-[90vw] max-w-[380px] bg-warm-white rounded-sm shadow-2xl border border-stone-200 flex flex-col transition-all duration-300 origin-bottom-right overflow-hidden ${
-          isOpen 
-            ? 'opacity-100 scale-100 translate-y-0' 
-            : 'opacity-0 scale-95 translate-y-4 pointer-events-none'
-        }`}
-        style={{ maxHeight: '600px', height: 'min(600px, 70vh)' }}
+        className={`fixed z-[100] bg-warm-white flex flex-col transition-all duration-300 overflow-hidden 
+          ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
+          
+          /* Mobile Styles: Full Screen */
+          inset-0 w-full h-[100dvh] rounded-none
+          ${isOpen ? 'translate-y-0 scale-100' : 'translate-y-12 scale-95'}
+          
+          /* Desktop Styles: Widget */
+          md:inset-auto md:bottom-24 md:right-6 md:w-[380px] md:h-[70vh] md:max-h-[600px] md:rounded-sm md:shadow-2xl md:border md:border-stone-200 md:origin-bottom-right
+          ${isOpen ? 'md:translate-y-0 md:scale-100' : 'md:translate-y-4 md:scale-95'}
+        `}
       >
         {/* Header */}
         <div className="bg-white px-6 py-4 border-b border-stone-100 flex justify-between items-center flex-shrink-0">
@@ -169,9 +184,11 @@ const SecretaryChat: React.FC = () => {
           </div>
           <button 
             onClick={() => setIsOpen(false)}
-            className="text-stone-400 hover:text-ink-black transition-colors"
+            className="text-stone-400 hover:text-ink-black transition-colors p-2 md:p-0"
           >
-            <Minimize2 size={18} />
+            {/* Show X on mobile (since toggle is hidden) and Minimize on desktop */}
+            <X size={24} className="md:hidden" />
+            <Minimize2 size={18} className="hidden md:block" />
           </button>
         </div>
 
@@ -195,7 +212,7 @@ const SecretaryChat: React.FC = () => {
                     <span className="text-[10px] font-bold uppercase tracking-widest">Concierge</span>
                   </div>
                 )}
-                <p className="whitespace-pre-wrap">{msg.text}</p>
+                <p className="whitespace-pre-wrap">{msg.role === 'model' ? cleanMessage(msg.text) : msg.text}</p>
               </div>
               {msg.role === 'model' && idx === messages.length - 1 && !hasInteracted && messages.length === 1 && (
                 <div className="mt-3 flex flex-wrap gap-2 animate-fade-in">
@@ -234,7 +251,7 @@ const SecretaryChat: React.FC = () => {
         </div>
 
         {/* Input Area */}
-        <div className="p-4 bg-white border-t border-stone-100 flex-shrink-0">
+        <div className="p-4 bg-white border-t border-stone-100 flex-shrink-0 safe-area-bottom">
           <div className="relative flex items-center">
             <input
               type="text"
@@ -260,4 +277,3 @@ const SecretaryChat: React.FC = () => {
 };
 
 export default SecretaryChat;
-    

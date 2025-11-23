@@ -16,13 +16,13 @@ const Hero: React.FC = () => {
               </span>
             </div>
             
-            <h1 className="font-serif font-medium leading-[1.05] text-ink-black mb-8 text-5xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl 2xl:text-8xl">
-              <span className="whitespace-nowrap">The Content & Brand</span> <br/>
-              <span className="whitespace-nowrap">Operating System.</span>
+            <h1 className="font-serif font-medium leading-[1.05] text-ink-black mb-8 text-3xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl 2xl:text-8xl break-words">
+              <span className="whitespace-normal sm:whitespace-nowrap">The Content & Brand</span> <br/>
+              <span className="whitespace-normal sm:whitespace-nowrap">Operating System.</span>
             </h1>
             
             <div className="mb-12">
-              <p className="text-2xl md:text-3xl text-ink-black/70 leading-relaxed mb-10 font-light max-w-2xl">
+              <p className="text-[22px] md:text-[28px] text-ink-black/70 leading-relaxed mb-10 font-light max-w-2xl">
                  Stop wrestling with generic AI. Madison turns your scattered brand knowledge into a single, living system that writes and creates exactly like you.
               </p>
               <div className="flex flex-col sm:flex-row gap-5">
