@@ -45,8 +45,8 @@ const Hero: React.FC = () => {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <a
-                href="https://cal.com/team/madison-studio/demo"
-                target="_blank"
+                href="https://app.madisonstudio.io/auth"
+                target="_self"
                 rel="noopener noreferrer"
                 className="bg-brass text-parchment px-8 py-4 rounded-full text-base font-semibold hover:bg-brass/90 transition-all hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2 group relative overflow-hidden"
               >
@@ -54,10 +54,15 @@ const Hero: React.FC = () => {
                 <span>Start Creating</span>
                 <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
-              <button className="bg-transparent border-2 border-brass text-brass px-8 py-4 rounded-full text-base font-semibold hover:bg-brass/10 transition-all flex items-center justify-center gap-2">
-                <Play className="w-4 h-4" />
-                <span>Watch How It Works</span>
-              </button>
+              <a
+                href="https://cal.com/team/madison-studio/demo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-transparent border-2 border-brass text-brass px-8 py-4 rounded-full text-base font-semibold hover:bg-brass/10 transition-all flex items-center justify-center gap-2"
+              >
+                <ChevronRight className="w-4 h-4" />
+                <span>Schedule a Demo</span>
+              </a>
             </div>
 
             {/* Trust Indicators */}

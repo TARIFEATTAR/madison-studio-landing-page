@@ -28,8 +28,8 @@ const FinalCTA: React.FC = () => {
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
           <a
-            href="https://cal.com/team/madison-studio/demo"
-            target="_blank"
+            href="https://app.madisonstudio.io/auth"
+            target="_self"
             rel="noopener noreferrer"
             className="bg-ink-black text-parchment px-10 py-5 rounded-full text-lg font-semibold hover:bg-charcoal transition-all hover:scale-105 shadow-xl w-full sm:w-auto flex items-center justify-center gap-2 group"
           >
