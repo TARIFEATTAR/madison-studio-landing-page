@@ -9,17 +9,17 @@ const TermsOfService: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col font-sans text-ink-black bg-warm-white selection:bg-deep-green selection:text-white">
+    <div className="min-h-screen flex flex-col font-sans text-ink-black bg-warm-white selection:bg-muted-gold selection:text-white">
       <Header />
-      
+
       <main className="flex-grow pt-32 pb-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Navigation Back */}
           <div className="mb-10">
-            <Button 
-              variant="ghost" 
-              size="sm" 
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={() => window.location.hash = ''}
               className="pl-0 hover:pl-2 transition-all"
             >
@@ -38,7 +38,7 @@ const TermsOfService: React.FC = () => {
 
           {/* Content Section */}
           <div className="space-y-12 text-lg leading-relaxed text-ink-black/80">
-            
+
             <section>
               <h2 className="font-serif text-3xl text-ink-black mb-4">Acceptance of Terms</h2>
               <p className="mb-4">
@@ -91,16 +91,16 @@ const TermsOfService: React.FC = () => {
               <h2 className="font-serif text-3xl text-ink-black mb-4">User Content & Intellectual Property</h2>
               <div className="bg-stone-50 border border-stone-200 rounded-lg p-6 space-y-6">
                 <div>
-                    <strong className="block text-lg text-deep-green mb-2">Your Content</strong>
-                    <p>You retain all ownership rights to content you create, upload, or generate through Madison Studio ("User Content").</p>
+                  <strong className="block text-lg text-deep-green mb-2">Your Content</strong>
+                  <p>You retain all ownership rights to content you create, upload, or generate through Madison Studio ("User Content").</p>
                 </div>
                 <div>
-                    <strong className="block text-lg text-deep-green mb-2">License to Us</strong>
-                    <p>By using the Service, you grant us a limited license to store, process, and display your User Content solely to provide the Service. This license ends when you delete content or close your account.</p>
+                  <strong className="block text-lg text-deep-green mb-2">License to Us</strong>
+                  <p>By using the Service, you grant us a limited license to store, process, and display your User Content solely to provide the Service. This license ends when you delete content or close your account.</p>
                 </div>
                 <div>
-                    <strong className="block text-lg text-deep-green mb-2">Our IP</strong>
-                    <p>The Madison Studio platform, software, designs, and trademarks are owned by Asala, LLC. You may not reverse engineer or copy our platform.</p>
+                  <strong className="block text-lg text-deep-green mb-2">Our IP</strong>
+                  <p>The Madison Studio platform, software, designs, and trademarks are owned by Asala, LLC. You may not reverse engineer or copy our platform.</p>
                 </div>
               </div>
             </section>
@@ -144,20 +144,20 @@ const TermsOfService: React.FC = () => {
               <h2 className="font-serif text-3xl text-ink-black mb-4">Disclaimers & Limitation of Liability</h2>
               <p className="mb-4 uppercase tracking-widest font-bold text-xs text-stone-500">Read Carefully</p>
               <div className="space-y-4">
-                 <p>
-                   The Service is provided "AS IS" and "AS AVAILABLE" without warranties of any kind. We do not guarantee continuous availability or specific business results.
-                 </p>
-                 <p>
-                   To the maximum extent permitted by law, Madison Studio shall not be liable for indirect, incidental, or consequential damages, or lost profits. Our total liability shall not exceed the amount you paid us in the 12 months preceding the claim.
-                 </p>
+                <p>
+                  The Service is provided "AS IS" and "AS AVAILABLE" without warranties of any kind. We do not guarantee continuous availability or specific business results.
+                </p>
+                <p>
+                  To the maximum extent permitted by law, Madison Studio shall not be liable for indirect, incidental, or consequential damages, or lost profits. Our total liability shall not exceed the amount you paid us in the 12 months preceding the claim.
+                </p>
               </div>
             </section>
 
             <section>
-               <h2 className="font-serif text-3xl text-ink-black mb-4">Dispute Resolution</h2>
-               <p className="mb-4">
-                 These Terms are governed by the laws of California. Any dispute not resolved informally shall be resolved through binding arbitration, rather than in court. You waive any right to participate in class actions.
-               </p>
+              <h2 className="font-serif text-3xl text-ink-black mb-4">Dispute Resolution</h2>
+              <p className="mb-4">
+                These Terms are governed by the laws of California. Any dispute not resolved informally shall be resolved through binding arbitration, rather than in court. You waive any right to participate in class actions.
+              </p>
             </section>
 
             <section className="mt-16 pt-10 border-t border-stone-200">
@@ -167,7 +167,7 @@ const TermsOfService: React.FC = () => {
                   <p className="text-sm font-bold tracking-widest text-stone-500 uppercase mb-2">Legal Entity</p>
                   <p className="font-bold text-lg">Asala, LLC (d/b/a Madison Studio)</p>
                   <p className="mt-2 text-ink-black/70">
-                    31080 Union City Blvd, Suite 211<br/>
+                    31080 Union City Blvd, Suite 211<br />
                     Union City, CA 94587
                   </p>
                 </div>
@@ -184,7 +184,7 @@ const TermsOfService: React.FC = () => {
           </div>
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );

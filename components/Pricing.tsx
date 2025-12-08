@@ -16,9 +16,9 @@ const Pricing: React.FC = () => {
     {
       name: "Atelier",
       description: "For independent creators and boutique brands establishing their voice.",
-      prices: { 
-        monthly: "$49", 
-        yearly: "$470" 
+      prices: {
+        monthly: "$49",
+        yearly: "$470"
       },
       period: {
         monthly: "/mo",
@@ -39,9 +39,9 @@ const Pricing: React.FC = () => {
     {
       name: "Studio",
       description: "For growing brands demanding scale, speed, and consistency.",
-      prices: { 
-        monthly: "$199", 
-        yearly: "$1,990" 
+      prices: {
+        monthly: "$199",
+        yearly: "$1,990"
       },
       period: {
         monthly: "/mo",
@@ -65,9 +65,9 @@ const Pricing: React.FC = () => {
     {
       name: "Maison",
       description: "For creative agencies and brand holdings requiring maximum power.",
-      prices: { 
-        monthly: "$599", 
-        yearly: "$5,990" 
+      prices: {
+        monthly: "$599",
+        yearly: "$5,990"
       },
       period: {
         monthly: "/mo",
@@ -116,19 +116,19 @@ const Pricing: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col font-sans text-ink-black bg-warm-white selection:bg-deep-green selection:text-white animate-fade-in">
+    <div className="min-h-screen flex flex-col font-sans text-ink-black bg-warm-white selection:bg-muted-gold selection:text-white animate-fade-in">
       <Header />
-      
+
       <main className="flex-grow pt-32 pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-16 animate-slide-up">
             <div className="inline-block mb-4 px-4 py-1.5 rounded-full bg-stone-100 border border-stone-200">
               <span className="text-xs font-bold text-stone-500 uppercase tracking-widest">Membership</span>
             </div>
             <h1 className="font-serif text-5xl md:text-6xl text-ink-black mb-6">
-              Invest in your brand's <br/> <span className="italic text-muted-gold">operating system.</span>
+              Invest in your brand's <br /> <span className="italic text-muted-gold">operating system.</span>
             </h1>
             <p className="text-xl text-ink-black/60 font-light">
               Stop paying per-seat for disjointed tools. Madison unifies your creative stack.
@@ -139,45 +139,41 @@ const Pricing: React.FC = () => {
               <div className="flex items-center relative z-10">
                 <button
                   onClick={() => setBillingCycle('monthly')}
-                  className={`px-6 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 ${
-                    billingCycle === 'monthly' ? 'text-deep-green' : 'text-stone-500 hover:text-stone-700'
-                  }`}
+                  className={`px-6 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 ${billingCycle === 'monthly' ? 'text-deep-green' : 'text-stone-500 hover:text-stone-700'
+                    }`}
                 >
                   Monthly
                 </button>
                 <button
                   onClick={() => setBillingCycle('yearly')}
-                  className={`px-6 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 ${
-                    billingCycle === 'yearly' ? 'text-deep-green' : 'text-stone-500 hover:text-stone-700'
-                  }`}
+                  className={`px-6 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 ${billingCycle === 'yearly' ? 'text-deep-green' : 'text-stone-500 hover:text-stone-700'
+                    }`}
                 >
                   Yearly
                 </button>
               </div>
               {/* Active Background Slider */}
-              <div 
-                className={`absolute top-1 bottom-1 w-[50%] bg-white rounded-full shadow-sm transition-all duration-300 ease-out ${
-                  billingCycle === 'monthly' ? 'left-1' : 'left-[49%]'
-                }`}
+              <div
+                className={`absolute top-1 bottom-1 w-[50%] bg-white rounded-full shadow-sm transition-all duration-300 ease-out ${billingCycle === 'monthly' ? 'left-1' : 'left-[49%]'
+                  }`}
               ></div>
             </div>
-            
+
             {/* Savings Text */}
             <div className={`mt-3 text-xs font-bold text-deep-green uppercase tracking-widest transition-opacity duration-300 ${billingCycle === 'yearly' ? 'opacity-100' : 'opacity-0'}`}>
-               2 Months Free included
+              2 Months Free included
             </div>
           </div>
 
           {/* Pricing Cards */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start mb-24">
             {tiers.map((tier, index) => (
-              <div 
+              <div
                 key={tier.name}
-                className={`relative p-8 md:p-10 rounded-sm transition-all duration-500 border flex flex-col h-full group ${
-                  tier.popular 
-                    ? 'bg-white border-muted-gold shadow-xl scale-100 lg:scale-105 z-10 ring-1 ring-muted-gold/20' 
+                className={`relative p-8 md:p-10 rounded-sm transition-all duration-500 border flex flex-col h-full group ${tier.popular
+                    ? 'bg-white border-muted-gold shadow-xl scale-100 lg:scale-105 z-10 ring-1 ring-muted-gold/20'
                     : 'bg-stone-50 border-stone-200 hover:border-stone-300 hover:bg-white hover:shadow-lg'
-                }`}
+                  }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {tier.popular && (
@@ -213,8 +209,8 @@ const Pricing: React.FC = () => {
                   ))}
                 </ul>
 
-                <Button 
-                  variant={tier.variant} 
+                <Button
+                  variant={tier.variant}
                   className="w-full justify-center"
                   href="https://cal.com/team/madison-studio/demo"
                   target="_blank"
@@ -234,37 +230,37 @@ const Pricing: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-               {addOns.map((addon, i) => (
-                 <div key={i} className="bg-white p-6 md:p-8 rounded-sm border border-stone-200 flex items-start gap-5 hover:border-muted-gold transition-colors hover:shadow-md group">
-                    <div className="p-3 bg-stone-50 rounded-sm text-stone-400 group-hover:text-deep-green group-hover:bg-deep-green/5 transition-colors">
-                      <Plus size={20} strokeWidth={2} />
+              {addOns.map((addon, i) => (
+                <div key={i} className="bg-white p-6 md:p-8 rounded-sm border border-stone-200 flex items-start gap-5 hover:border-muted-gold transition-colors hover:shadow-md group">
+                  <div className="p-3 bg-stone-50 rounded-sm text-stone-400 group-hover:text-deep-green group-hover:bg-deep-green/5 transition-colors">
+                    <Plus size={20} strokeWidth={2} />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex flex-wrap justify-between items-center mb-2 gap-2">
+                      <h4 className="font-serif text-xl text-ink-black font-medium">{addon.name}</h4>
+                      <span className="text-xs font-bold text-deep-green bg-stone-100 px-2 py-1 rounded-sm border border-stone-200">{addon.price}</span>
                     </div>
-                    <div className="flex-1">
-                       <div className="flex flex-wrap justify-between items-center mb-2 gap-2">
-                          <h4 className="font-serif text-xl text-ink-black font-medium">{addon.name}</h4>
-                          <span className="text-xs font-bold text-deep-green bg-stone-100 px-2 py-1 rounded-sm border border-stone-200">{addon.price}</span>
-                       </div>
-                       <p className="text-sm text-ink-black/60 leading-relaxed">{addon.desc}</p>
-                    </div>
-                 </div>
-               ))}
+                    <p className="text-sm text-ink-black/60 leading-relaxed">{addon.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Trust Strip */}
           <div className="mt-24 pt-16 border-t border-stone-200 text-center">
-             <p className="text-sm font-bold tracking-widest text-stone-400 uppercase mb-8">Trusted by modern brands</p>
-             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 text-stone-300 grayscale opacity-70 hover:opacity-100 transition-opacity">
-                <div className="flex items-center gap-2"><Building2 size={24} /><span className="font-serif font-bold text-xl">VOGUE</span></div>
-                <div className="flex items-center gap-2"><Users size={24} /><span className="font-serif font-bold text-xl">GLOSSIER</span></div>
-                <div className="flex items-center gap-2"><Zap size={24} /><span className="font-serif font-bold text-xl">AESOP</span></div>
-                <div className="flex items-center gap-2"><Sparkles size={24} /><span className="font-serif font-bold text-xl">BYREDO</span></div>
-             </div>
+            <p className="text-sm font-bold tracking-widest text-stone-400 uppercase mb-8">Trusted by modern brands</p>
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 text-stone-300 grayscale opacity-70 hover:opacity-100 transition-opacity">
+              <div className="flex items-center gap-2"><Building2 size={24} /><span className="font-serif font-bold text-xl">VOGUE</span></div>
+              <div className="flex items-center gap-2"><Users size={24} /><span className="font-serif font-bold text-xl">GLOSSIER</span></div>
+              <div className="flex items-center gap-2"><Zap size={24} /><span className="font-serif font-bold text-xl">AESOP</span></div>
+              <div className="flex items-center gap-2"><Sparkles size={24} /><span className="font-serif font-bold text-xl">BYREDO</span></div>
+            </div>
           </div>
 
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );

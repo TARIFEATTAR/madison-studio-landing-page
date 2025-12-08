@@ -1,52 +1,63 @@
 import React from 'react';
-import Button from './ui/Button';
-import ScrollReveal from './ui/ScrollReveal';
+import { ChevronRight, HelpCircle, Calendar } from 'lucide-react';
 
 const FinalCTA: React.FC = () => {
   return (
-    <section className="py-32 bg-luxury-tan text-center">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal>
-          <h2 className="font-serif text-6xl md:text-7xl lg:text-8xl text-ink-black mb-10 leading-tight">
-            Ready to give your brand <br/>
-            a real operating system?
-          </h2>
-        </ScrollReveal>
-        
-        <ScrollReveal delay="200ms">
-          <p className="text-3xl text-ink-black/70 mb-16 font-light max-w-3xl mx-auto">
-            Walk through Madison Studio live, see your brand inside the system, and leave with a clear plan for your next 90 days of content.
-          </p>
-        </ScrollReveal>
-        
-        <ScrollReveal delay="400ms">
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-            <Button 
-              variant="primary" 
-              size="lg" 
-              className="w-full sm:w-auto"
-              href="https://cal.com/team/madison-studio/demo"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Book a Madison Demo
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="w-full sm:w-auto"
-              href="https://app.madisonstudio.io/auth"
-            >
-              Enter the Studio
-            </Button>
-          </div>
-        </ScrollReveal>
-        
-        <ScrollReveal delay="500ms">
-          <p className="text-lg text-ink-black/50 font-medium">
-            No hard pitch. Just a working session with your brand on screen.
-          </p>
-        </ScrollReveal>
+    <section className="py-32 relative overflow-hidden">
+      {/* Brass gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-brass via-brass to-amber" />
+
+      {/* Subtle pattern overlay */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,_rgba(255,255,255,0.3),_transparent_50%)]" />
+        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,_rgba(0,0,0,0.2),_transparent_50%)]" />
+      </div>
+
+      <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center text-parchment">
+        <h2 className="font-serif text-4xl lg:text-5xl xl:text-6xl mb-4 leading-tight">
+          Your Brand Has Something to Say.
+        </h2>
+        <h2 className="font-serif text-4xl lg:text-5xl xl:text-6xl mb-8 leading-tight italic">
+          Let Madison Help You Say It Everywhere.
+        </h2>
+
+        <p className="text-xl text-parchment/90 mb-12 max-w-2xl mx-auto">
+          Start your 14-day free trial. No credit card required.<br />
+          Upload your brand, create your first piece, and watch it multiply.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
+          <a
+            href="https://cal.com/team/madison-studio/demo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-ink-black text-parchment px-10 py-5 rounded-full text-lg font-semibold hover:bg-charcoal transition-all hover:scale-105 shadow-xl w-full sm:w-auto flex items-center justify-center gap-2 group"
+          >
+            <span>Start Creating for Free</span>
+            <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" strokeWidth={1} />
+          </a>
+        </div>
+
+        {/* Secondary links */}
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-sm text-parchment/80">
+          <a
+            href="https://cal.com/team/madison-studio/demo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:text-parchment transition-colors"
+          >
+            <Calendar className="w-4 h-4" strokeWidth={1} />
+            <span>Book a demo</span>
+          </a>
+          <span className="hidden sm:block">·</span>
+          <a
+            href="#help"
+            className="flex items-center gap-2 hover:text-parchment transition-colors"
+          >
+            <HelpCircle className="w-4 h-4" strokeWidth={1} />
+            <span>Explore our help center</span>
+          </a>
+        </div>
       </div>
     </section>
   );

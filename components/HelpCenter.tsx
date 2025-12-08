@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Button from './ui/Button';
-import { 
-  Search, ChevronDown, ChevronRight, BookOpen, CreditCard, 
-  PenTool, Layers, Image as ImageIcon, Calendar, ShoppingBag, 
+import {
+  Search, ChevronDown, ChevronRight, BookOpen, CreditCard,
+  PenTool, Layers, Image as ImageIcon, Calendar, ShoppingBag,
   Users, Link as LinkIcon, Activity, AlertCircle, Sparkles, Shield,
   LayoutGrid
 } from 'lucide-react';
@@ -360,15 +360,15 @@ const faqData: FAQSection[] = [
       {
         q: "How do I generate images?",
         a: <>
-           <OrderedListBlock items={[
-             "Go to Image Studio in the sidebar",
-             "Name your session (e.g., \"Rose Serum Product Shots\")",
-             "Choose aspect ratio (1:1, 4:5, 16:9, etc.)",
-             "Upload a reference image of your product (optional)",
-             "Describe the scene you want",
-             "Click Generate"
-           ]} />
-           <TextBlock>Madison creates up to 10 images per session in 30-60 seconds.</TextBlock>
+          <OrderedListBlock items={[
+            "Go to Image Studio in the sidebar",
+            "Name your session (e.g., \"Rose Serum Product Shots\")",
+            "Choose aspect ratio (1:1, 4:5, 16:9, etc.)",
+            "Upload a reference image of your product (optional)",
+            "Describe the scene you want",
+            "Click Generate"
+          ]} />
+          <TextBlock>Madison creates up to 10 images per session in 30-60 seconds.</TextBlock>
         </>
       },
       {
@@ -617,12 +617,12 @@ const HelpCenter: React.FC = () => {
   // Filter data based on search
   const filteredData = searchQuery
     ? faqData.map(section => ({
-        ...section,
-        questions: section.questions.filter(q => 
-          q.q.toLowerCase().includes(searchQuery.toLowerCase()) || 
-          (typeof q.a === 'string' && q.a.toLowerCase().includes(searchQuery.toLowerCase()))
-        )
-      })).filter(section => section.questions.length > 0)
+      ...section,
+      questions: section.questions.filter(q =>
+        q.q.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (typeof q.a === 'string' && q.a.toLowerCase().includes(searchQuery.toLowerCase()))
+      )
+    })).filter(section => section.questions.length > 0)
     : faqData;
 
   // Function to handle scroll to section
@@ -636,21 +636,21 @@ const HelpCenter: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col font-sans text-ink-black bg-warm-white selection:bg-deep-green selection:text-white">
+    <div className="min-h-screen flex flex-col font-sans text-ink-black bg-warm-white selection:bg-muted-gold selection:text-white">
       <Header />
-      
+
       <main className="flex-grow pt-24 md:pt-32 pb-16">
-        
+
         {/* Hero Search Section */}
-        <div className="bg-deep-green text-white py-16 md:py-24 px-4 mb-12">
+        <div className="bg-navy-dark text-white py-16 md:py-24 px-4 mb-12">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="font-serif text-4xl md:text-6xl mb-6">How can we help you?</h1>
             <p className="text-xl text-stone-300 mb-10 font-light">Browse our guides or search for specific questions.</p>
-            
+
             <div className="relative max-w-2xl mx-auto">
-              <input 
-                type="text" 
-                placeholder="Search for answers (e.g. 'Shopify integration', 'Billing')" 
+              <input
+                type="text"
+                placeholder="Search for answers (e.g. 'Shopify integration', 'Billing')"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full py-4 pl-14 pr-6 rounded-md text-ink-black text-lg focus:outline-none focus:ring-4 focus:ring-muted-gold/50 shadow-xl"
@@ -662,7 +662,7 @@ const HelpCenter: React.FC = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-12">
-            
+
             {/* Sidebar Navigation (Desktop) */}
             <div className="hidden lg:block w-64 flex-shrink-0">
               <div className="sticky top-32 space-y-1 max-h-[calc(100vh-160px)] overflow-y-auto pr-2 custom-scrollbar">
@@ -671,13 +671,12 @@ const HelpCenter: React.FC = () => {
                   <button
                     key={section.id}
                     onClick={() => scrollToSection(section.id)}
-                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-sm text-left transition-colors ${
-                      activeSection === section.id && !searchQuery
-                        ? 'bg-white shadow-sm text-deep-green font-medium' 
-                        : 'text-ink-black/70 hover:bg-stone-100 hover:text-ink-black'
-                    }`}
+                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-sm text-left transition-colors ${activeSection === section.id && !searchQuery
+                      ? 'bg-transparent shadow-none text-ink-black font-semibold' // Transparent active state
+                      : 'text-ink-black/70 hover:bg-stone/10 hover:text-ink-black' // Transparent hover
+                      }`}
                   >
-                    <section.icon size={18} className={activeSection === section.id && !searchQuery ? 'text-muted-gold' : 'opacity-50'} />
+                    <section.icon size={18} className={activeSection === section.id && !searchQuery ? 'text-brass' : 'opacity-50'} />
                     <span className="text-sm">{section.title}</span>
                   </button>
                 ))}
@@ -690,11 +689,10 @@ const HelpCenter: React.FC = () => {
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
-                  className={`flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full border snap-start ${
-                    activeSection === section.id 
-                      ? 'bg-deep-green text-white border-deep-green' 
-                      : 'bg-white text-ink-black border-stone-200'
-                  }`}
+                  className={`flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full border snap-start ${activeSection === section.id
+                    ? 'bg-deep-green text-white border-deep-green'
+                    : 'bg-white text-ink-black border-stone-200'
+                    }`}
                 >
                   <section.icon size={14} />
                   <span className="text-sm whitespace-nowrap">{section.title}</span>
@@ -706,14 +704,14 @@ const HelpCenter: React.FC = () => {
             <div className="flex-1 min-w-0">
               {/* Back Home Link */}
               <div className="mb-8">
-                 <Button 
-                   variant="ghost" 
-                   size="sm" 
-                   onClick={() => window.location.hash = ''}
-                   className="pl-0 hover:pl-2 text-stone-500"
-                 >
-                   ← Back to Home
-                 </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => window.location.hash = ''}
+                  className="pl-0 hover:pl-2 text-stone-500"
+                >
+                  ← Back to Home
+                </Button>
               </div>
 
               {filteredData.length === 0 && (
@@ -721,7 +719,7 @@ const HelpCenter: React.FC = () => {
                   <Search className="mx-auto h-12 w-12 text-stone-300 mb-4" />
                   <h3 className="text-xl font-medium text-ink-black mb-2">No results found</h3>
                   <p className="text-stone-500">Try searching for a different keyword or category.</p>
-                  <button 
+                  <button
                     onClick={() => setSearchQuery('')}
                     className="mt-4 text-deep-green font-medium hover:underline"
                   >
@@ -744,13 +742,12 @@ const HelpCenter: React.FC = () => {
                       {section.questions.map((item, idx) => {
                         const qId = `${section.id}-${idx}`;
                         const isExpanded = expandedQuestions.has(qId) || searchQuery !== '';
-                        
+
                         return (
-                          <div 
-                            key={idx} 
-                            className={`bg-white border transition-all duration-300 rounded-sm overflow-hidden ${
-                              isExpanded ? 'border-muted-gold shadow-md' : 'border-stone-100 hover:border-stone-300'
-                            }`}
+                          <div
+                            key={idx}
+                            className={`bg-white border transition-all duration-300 rounded-sm overflow-hidden ${isExpanded ? 'border-muted-gold shadow-md' : 'border-stone-100 hover:border-stone-300'
+                              }`}
                           >
                             <button
                               onClick={() => toggleQuestion(qId)}
@@ -763,11 +760,10 @@ const HelpCenter: React.FC = () => {
                                 {isExpanded ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
                               </span>
                             </button>
-                            
-                            <div 
-                              className={`px-6 text-base border-t border-stone-50 bg-stone-50/30 transition-all duration-300 ease-in-out ${
-                                isExpanded ? 'max-h-[500px] opacity-100 py-6 overflow-y-auto' : 'max-h-0 opacity-0 py-0 overflow-hidden'
-                              }`}
+
+                            <div
+                              className={`px-6 text-base border-t border-stone-50 bg-stone-50/30 transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-[500px] opacity-100 py-6 overflow-y-auto' : 'max-h-0 opacity-0 py-0 overflow-hidden'
+                                }`}
                             >
                               {item.a}
                             </div>
@@ -800,7 +796,7 @@ const HelpCenter: React.FC = () => {
           </div>
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );

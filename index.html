@@ -1,72 +1,150 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Madison Studio | The Content & Brand Operating System</title>
-    <meta name="description" content="Madison Studio turns your scattered brand knowledge, content ideas, and product data into a single, living system." />
-    
-    <!-- Google Fonts: Cormorant Garamond (Serif) & Inter (Sans) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              serif: ['"Cormorant Garamond"', 'serif'],
-              sans: ['"Inter"', 'sans-serif'],
-            },
-            colors: {
-              'warm-white': '#F9F8F6',
-              'stone-50': '#FAFAF9',
-              'stone-100': '#F5F5F4',
-              'ink-black': '#1A1A1A',
-              'charcoal': '#2D2D2D',
-              'deep-green': '#0F0F0F', /* Updated from green to Rich Ink Black */
-              'muted-gold': '#C5A059',
-              'soft-gray': '#8E8E93',
-              'luxury-tan': '#EBE5DA',
-            },
-            animation: {
-              'fade-in': 'fadeIn 0.8s ease-out forwards',
-              'slide-up': 'slideUp 0.8s ease-out forwards',
-              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            },
-            keyframes: {
-              fadeIn: {
-                '0%': { opacity: '0' },
-                '100%': { opacity: '1' },
-              },
-              slideUp: {
-                '0%': { opacity: '0', transform: 'translateY(20px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              },
-            }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Madison Studio | The Content Operating System for Premium Brands</title>
+  <meta name="description"
+    content="Madison Studio turns your scattered brand knowledge, content ideas, and product data into a single, living system." />
+
+  <!-- Google Fonts: Cormorant Garamond (Headlines), Lato (Body), Crimson Text (Accents) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Lato"', 'sans-serif'],
+            accent: ['"Crimson Text"', 'serif'],
           },
+          colors: {
+            // Core Palette
+            'ink-black': '#1A1816',
+            'charcoal': '#2F2A26',
+            'vellum': '#F5F1E8',
+            'parchment': '#FFFCF5',
+            'brass': '#B8956A',
+            'stone': '#E5DFD1',
+            // Semantic Colors
+            'sage': '#8B9474',
+            'amber': '#C4975C',
+            'rust': '#A85C5C',
+            // Legacy mappings for compatibility
+            'warm-white': '#F5F1E8',
+            'cream': '#FFFCF5',
+            'muted-gold': '#B8956A',
+            'gold': '#B8956A',
+            'soft-gray': '#2F2A26',
+            'luxury-tan': '#E5DFD1',
+            'navy-dark': '#1A1816',
+            'deep-green': '#1A1816',
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.8s ease-out forwards',
+            'slide-up': 'slideUp 0.8s ease-out forwards',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out 3s infinite',
+            'scroll': 'scroll 30s linear infinite',
+            'shimmer': 'shimmer 2.5s infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            scroll: {
+              '0%': { transform: 'translateX(0)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            shimmer: {
+              '0%': { backgroundPosition: '-200% 0' },
+              '100%': { backgroundPosition: '200% 0' },
+            }
+          }
         },
-      }
-    </script>
-    <style>
-      body {
-        background-color: #F9F8F6;
-        color: #1A1A1A;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      /* Hide scrollbar for clean aesthetics in horizontal scroll areas */
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-    </style>
+      },
+    }
+  </script>
+  <style>
+    body {
+      background-color: #F5F1E8;
+      /* Vellum Cream */
+      color: #1A1816;
+      /* Ink Black */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: "cv11", "ss01";
+    }
+
+    /* Glass panel effect */
+    .glass-panel {
+      background: rgba(255, 252, 245, 0.9);
+      /* Parchment with opacity */
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* Luxury gradient - Cream to Parchment */
+    .luxury-gradient {
+      background: linear-gradient(135deg, #F5F1E8 0%, #FFFCF5 100%);
+    }
+
+    /* Hide scrollbar for clean aesthetics */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Scroll reveal animations */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-delay-1 {
+      transition-delay: 100ms;
+    }
+
+    .stagger-delay-2 {
+      transition-delay: 200ms;
+    }
+
+    .stagger-delay-3 {
+      transition-delay: 300ms;
+    }
+
+    .stagger-delay-4 {
+      transition-delay: 400ms;
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -79,8 +157,10 @@
 }
 </script>
 </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
-  </body>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="./index.tsx"></script>
+</body>
+
 </html>

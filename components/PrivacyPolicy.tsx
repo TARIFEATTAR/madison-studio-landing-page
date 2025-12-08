@@ -9,18 +9,18 @@ const PrivacyPolicy: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col font-sans text-ink-black bg-warm-white selection:bg-deep-green selection:text-white">
+    <div className="min-h-screen flex flex-col font-sans text-ink-black bg-warm-white selection:bg-muted-gold selection:text-white">
       {/* Reusing Header for consistency, though navigations inside might just link to anchors on home */}
       <Header />
-      
+
       <main className="flex-grow pt-32 pb-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Navigation Back */}
           <div className="mb-10">
-            <Button 
-              variant="ghost" 
-              size="sm" 
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={() => window.location.hash = ''}
               className="pl-0 hover:pl-2 transition-all"
             >
@@ -39,7 +39,7 @@ const PrivacyPolicy: React.FC = () => {
 
           {/* Content Section */}
           <div className="space-y-12 text-lg leading-relaxed text-ink-black/80">
-            
+
             <section>
               <h2 className="font-serif text-3xl text-ink-black mb-4">Introduction</h2>
               <p className="mb-4">
@@ -55,7 +55,7 @@ const PrivacyPolicy: React.FC = () => {
 
             <section>
               <h2 className="font-serif text-3xl text-ink-black mb-6">Information We Collect</h2>
-              
+
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-bold text-ink-black mb-2">Information You Provide Directly</h3>
@@ -109,25 +109,25 @@ const PrivacyPolicy: React.FC = () => {
 
             <section>
               <h2 className="font-serif text-3xl text-ink-black mb-4">AI Processing & Content Generation</h2>
-              
+
               <div className="bg-stone-50 border border-stone-200 rounded-lg p-6 mb-6">
-                 <h3 className="text-xl font-bold text-ink-black mb-2">Third-Party AI Services</h3>
-                 <p className="mb-4">Madison Studio uses the following AI providers to generate content:</p>
-                 <ul className="list-disc pl-5 space-y-2 mb-6 marker:text-muted-gold">
-                    <li><strong>Anthropic Claude API:</strong> Primary content generation.</li>
-                    <li><strong>Google Gemini:</strong> Brand health analysis, image generation, derivative content.</li>
-                 </ul>
-                 
-                 <div className="bg-white p-4 rounded border border-stone-200">
-                    <p className="font-bold text-deep-green uppercase text-xs tracking-widest mb-2">Important</p>
-                    <p className="text-base mb-3">
-                      When you use our content generation features, your prompts and brand information are sent to these AI services to create your content. These providers process data according to their own privacy policies:
-                    </p>
-                    <div className="flex gap-4 text-sm">
-                      <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noreferrer" className="text-deep-green hover:underline underline-offset-4">Anthropic Privacy Policy ↗</a>
-                      <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer" className="text-deep-green hover:underline underline-offset-4">Google AI Privacy Policy ↗</a>
-                    </div>
-                 </div>
+                <h3 className="text-xl font-bold text-ink-black mb-2">Third-Party AI Services</h3>
+                <p className="mb-4">Madison Studio uses the following AI providers to generate content:</p>
+                <ul className="list-disc pl-5 space-y-2 mb-6 marker:text-muted-gold">
+                  <li><strong>Anthropic Claude API:</strong> Primary content generation.</li>
+                  <li><strong>Google Gemini:</strong> Brand health analysis, image generation, derivative content.</li>
+                </ul>
+
+                <div className="bg-white p-4 rounded border border-stone-200">
+                  <p className="font-bold text-deep-green uppercase text-xs tracking-widest mb-2">Important</p>
+                  <p className="text-base mb-3">
+                    When you use our content generation features, your prompts and brand information are sent to these AI services to create your content. These providers process data according to their own privacy policies:
+                  </p>
+                  <div className="flex gap-4 text-sm">
+                    <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noreferrer" className="text-deep-green hover:underline underline-offset-4">Anthropic Privacy Policy ↗</a>
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer" className="text-deep-green hover:underline underline-offset-4">Google AI Privacy Policy ↗</a>
+                  </div>
+                </div>
               </div>
               <p className="italic">We do not use your content to train our own models or share it with third parties for their model training.</p>
             </section>
@@ -162,22 +162,22 @@ const PrivacyPolicy: React.FC = () => {
               <h2 className="font-serif text-3xl text-ink-black mb-4">Your Privacy Rights</h2>
               <p className="mb-4">Depending on your location, you may have rights including:</p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                 <li className="bg-stone-50 p-4 rounded border border-stone-100">
-                    <strong className="block text-deep-green mb-1">Access & Portability</strong>
-                    View all personal data or export content.
-                 </li>
-                 <li className="bg-stone-50 p-4 rounded border border-stone-100">
-                    <strong className="block text-deep-green mb-1">Correction & Deletion</strong>
-                    Update info or request account deletion.
-                 </li>
-                 <li className="bg-stone-50 p-4 rounded border border-stone-100">
-                    <strong className="block text-deep-green mb-1">Opt-Out & Control</strong>
-                    Unsubscribe from marketing or disable integrations.
-                 </li>
-                 <li className="bg-stone-50 p-4 rounded border border-stone-100">
-                    <strong className="block text-deep-green mb-1">Data Minimization</strong>
-                    We collect only what is necessary.
-                 </li>
+                <li className="bg-stone-50 p-4 rounded border border-stone-100">
+                  <strong className="block text-deep-green mb-1">Access & Portability</strong>
+                  View all personal data or export content.
+                </li>
+                <li className="bg-stone-50 p-4 rounded border border-stone-100">
+                  <strong className="block text-deep-green mb-1">Correction & Deletion</strong>
+                  Update info or request account deletion.
+                </li>
+                <li className="bg-stone-50 p-4 rounded border border-stone-100">
+                  <strong className="block text-deep-green mb-1">Opt-Out & Control</strong>
+                  Unsubscribe from marketing or disable integrations.
+                </li>
+                <li className="bg-stone-50 p-4 rounded border border-stone-100">
+                  <strong className="block text-deep-green mb-1">Data Minimization</strong>
+                  We collect only what is necessary.
+                </li>
               </ul>
               <p>To exercise these rights, contact us at <a href="mailto:privacy@madisonstudio.io" className="text-deep-green font-bold hover:underline">privacy@madisonstudio.io</a>.</p>
             </section>
@@ -204,7 +204,7 @@ const PrivacyPolicy: React.FC = () => {
                   <p className="text-sm font-bold tracking-widest text-stone-500 uppercase mb-2">Legal Entity</p>
                   <p className="font-bold text-lg">Asala, LLC (d/b/a Madison Studio)</p>
                   <p className="mt-2 text-ink-black/70">
-                    31080 Union City Blvd, Suite 211<br/>
+                    31080 Union City Blvd, Suite 211<br />
                     Union City, CA 94587
                   </p>
                 </div>
@@ -222,7 +222,7 @@ const PrivacyPolicy: React.FC = () => {
           </div>
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );
