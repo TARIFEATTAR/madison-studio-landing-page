@@ -10,8 +10,12 @@ const Hero: React.FC = () => {
         style={{ backgroundImage: "url('/images/hero-art-deco.jpg')" }}
       />
 
-      {/* Vellum Cream Gradient Overlay - Solid left, fades to transparent right */}
-      <div className="absolute inset-0 bg-gradient-to-r from-vellum via-vellum/70 via-50% to-transparent" />
+      {/* Overlays */}
+      {/* Mobile: Strong vertical fade for legibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-vellum/90 via-vellum/80 to-vellum/60 lg:hidden" />
+
+      {/* Desktop: Elegant horizontal fade (solid left to transparent right) */}
+      <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-vellum via-vellum/90 via-40% to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 py-32 lg:py-0">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
