@@ -30,7 +30,7 @@ const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 lg:py-32 bg-vellum relative overflow-hidden">
+    <section id="how-it-works" className="py-24 lg:py-32 bg-vellum relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-20 w-40 h-40 border border-stone rounded-full" />
