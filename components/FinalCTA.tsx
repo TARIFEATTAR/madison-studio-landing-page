@@ -5,12 +5,15 @@ const FinalCTA: React.FC = () => {
   return (
     <section className="py-32 relative overflow-hidden">
       {/* Brass gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-brass via-brass to-amber" />
-
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,_rgba(255,255,255,0.3),_transparent_50%)]" />
-        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,_rgba(0,0,0,0.2),_transparent_50%)]" />
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src="https://cdn.shopify.com/s/files/1/1989/5889/files/asala_httpss.mj.runR_LfZAxXUNE_A_blurred_background_view_thro_12d951cb-8230-486e-8f17-847b8a5c37c6_2.png?v=1765248491"
+          alt="Madison Studio Background"
+          className="w-full h-full object-cover"
+        />
+        {/* Subtle overlay to ensure text readability if needed, though image seems soft enough */}
+        <div className="absolute inset-0 bg-black/5" />
       </div>
 
       <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center text-parchment">
