@@ -15,25 +15,25 @@ const Footer: React.FC = () => {
     // CRITICAL: Prevent default browser navigation to avoid "Refused to display in a frame" errors
     e.preventDefault();
     e.stopPropagation();
-    
+
     if (href.startsWith('#')) {
-       window.location.hash = href;
+      window.location.hash = href;
     } else {
-       window.location.href = href;
+      window.location.href = href;
     }
   };
 
   return (
-    <footer className="bg-ink-black text-white py-20 md:py-24 border-t border-stone-800">
+    <footer className="bg-ink-black text-white py-20 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-12">
-          
+
           {/* Brand */}
           <div className="text-center md:text-left">
             {/* Logo Image */}
-            <img 
-              src="https://placehold.co/480x120/1A1A1A/FFFFFF?text=Madison+Studio&font=playfair-display" 
-              alt="Madison Studio" 
+            <img
+              src="https://placehold.co/480x120/1A1A1A/FFFFFF?text=Madison+Studio&font=playfair-display"
+              alt="Madison Studio"
               className="h-24 mb-6 mx-auto md:mx-0 md:-ml-10 object-contain opacity-90 hover:opacity-100 transition-opacity"
             />
             <p className="text-stone-400 text-base tracking-wide">Authentic Intelligence by Asala</p>
@@ -42,9 +42,9 @@ const Footer: React.FC = () => {
           {/* Links */}
           <div className="flex flex-wrap justify-center gap-8 md:gap-12 text-lg text-stone-400">
             {footerLinks.map((link) => (
-              <a 
-                key={link.name} 
-                href={link.href} 
+              <a
+                key={link.name}
+                href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
                 className="hover:text-white transition-colors cursor-pointer"
               >
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
           </div>
 
         </div>
-        
+
         <div className="mt-16 pt-10 border-t border-stone-800 text-center md:text-left text-base text-stone-500 flex flex-col md:flex-row justify-between items-center">
           <p>© {currentYear} Madison Studio. All rights reserved.</p>
           <div className="flex gap-6 mt-6 md:mt-0">

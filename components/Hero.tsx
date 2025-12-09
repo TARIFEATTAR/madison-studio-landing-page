@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/images/hero-bg-v2.png')" }}
+        style={{ backgroundImage: "url('/images/hero-art-deco.jpg')" }}
       />
 
       {/* Overlays */}
