@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { GoogleGenAI } from "@google/genai";
-import { Sparkles, Bot, RefreshCcw } from 'lucide-react';
+import { Feather, Bot, RefreshCcw } from 'lucide-react';
 
 const HeroCopyDemo: React.FC = () => {
   const [prompt, setPrompt] = useState("Write a launch tweet for our new midnight silk pajamas.");
@@ -15,7 +15,7 @@ const HeroCopyDemo: React.FC = () => {
 
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      
+
       let systemInstruction = "";
       if (selectedMode === 'madison') {
         systemInstruction = "You are Madison, an elite brand editorial director. Your tone is sophisticated, understated, and confident. You use sensory language but keep it concise. Avoid emojis unless strictly necessary and minimal. Focus on the feeling of the product. Use sentence fragments for effect. Do not be salesy.";
@@ -63,7 +63,7 @@ const HeroCopyDemo: React.FC = () => {
               onChange={(e) => setPrompt(e.target.value)}
               className="w-full bg-stone-50 border border-stone-200 rounded-sm py-4 px-5 text-lg text-ink-black focus:outline-none focus:ring-2 focus:ring-deep-green/20 focus:border-deep-green transition-all shadow-inner"
             />
-            <button 
+            <button
               onClick={() => setPrompt("Write a product description for a ceramic coffee mug.")}
               className="absolute right-3 top-3 text-xs text-stone-400 hover:text-deep-green bg-white border border-stone-200 px-3 py-1.5 rounded-sm hover:border-deep-green transition-colors"
             >
@@ -81,25 +81,25 @@ const HeroCopyDemo: React.FC = () => {
             </div>
           ) : output ? (
             <div className="animate-slide-up w-full">
-               {mode === 'madison' ? (
-                 <div className="bg-deep-green text-white p-6 md:p-8 rounded-sm shadow-lg text-left border border-stone-800">
-                   <div className="text-[10px] font-bold tracking-widest opacity-70 uppercase mb-3 text-stone-300">Generated Output</div>
-                   <p className="font-serif text-xl md:text-2xl leading-relaxed">
-                     "{output}"
-                   </p>
-                 </div>
-               ) : (
-                 <div className="p-2">
-                    <div className="flex justify-between items-start mb-4">
-                        <span className="text-xs font-bold uppercase px-3 py-1.5 rounded-sm bg-stone-200 text-stone-500">
-                        Generic Draft
-                        </span>
-                    </div>
-                    <p className="text-xl md:text-2xl leading-relaxed font-sans text-stone-500">
-                        "{output}"
-                    </p>
-                 </div>
-               )}
+              {mode === 'madison' ? (
+                <div className="bg-deep-green text-white p-6 md:p-8 rounded-sm shadow-lg text-left border border-stone-800">
+                  <div className="text-[10px] font-bold tracking-widest opacity-70 uppercase mb-3 text-stone-300">Generated Output</div>
+                  <p className="font-serif text-xl md:text-2xl leading-relaxed">
+                    "{output}"
+                  </p>
+                </div>
+              ) : (
+                <div className="p-2">
+                  <div className="flex justify-between items-start mb-4">
+                    <span className="text-xs font-bold uppercase px-3 py-1.5 rounded-sm bg-stone-200 text-stone-500">
+                      Generic Draft
+                    </span>
+                  </div>
+                  <p className="text-xl md:text-2xl leading-relaxed font-sans text-stone-500">
+                    "{output}"
+                  </p>
+                </div>
+              )}
             </div>
           ) : (
             <div className="text-center text-stone-400">
@@ -123,8 +123,8 @@ const HeroCopyDemo: React.FC = () => {
             disabled={loading}
             className="flex-1 flex items-center justify-center gap-3 py-4 px-6 rounded-sm bg-soft-gray text-white shadow-lg hover:bg-stone-500 hover:scale-[1.02] transition-all font-medium text-lg"
           >
-            <Sparkles size={20} className="text-white" />
-            Madison Magic
+            <Feather size={20} className="text-white" />
+            Madison Edit
           </button>
         </div>
       </div>

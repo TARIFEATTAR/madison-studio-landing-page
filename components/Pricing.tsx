@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Button from './ui/Button';
-import { Check, Building2, Users, Zap, Sparkles, Star, Plus } from 'lucide-react';
+import { Check, Building2, Users, Zap, Camera, Star, Plus } from 'lucide-react';
 
 const Pricing: React.FC = () => {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
@@ -99,7 +99,7 @@ const Pricing: React.FC = () => {
       name: "Extra image credits",
       price: "From $25/mo",
       desc: "50 for $25, 100 for $45, or 500 for $175.",
-      icon: Sparkles
+      icon: Camera
     },
     {
       name: "Additional brand slot",
@@ -171,8 +171,8 @@ const Pricing: React.FC = () => {
               <div
                 key={tier.name}
                 className={`relative p-8 md:p-10 rounded-sm transition-all duration-500 border flex flex-col h-full group ${tier.popular
-                    ? 'bg-white border-muted-gold shadow-xl scale-100 lg:scale-105 z-10 ring-1 ring-muted-gold/20'
-                    : 'bg-stone-50 border-stone-200 hover:border-stone-300 hover:bg-white hover:shadow-lg'
+                  ? 'bg-white border-muted-gold shadow-xl scale-100 lg:scale-105 z-10 ring-1 ring-muted-gold/20'
+                  : 'bg-stone-50 border-stone-200 hover:border-stone-300 hover:bg-white hover:shadow-lg'
                   }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
@@ -254,7 +254,7 @@ const Pricing: React.FC = () => {
               <div className="flex items-center gap-2"><Building2 size={24} /><span className="font-serif font-bold text-xl">VOGUE</span></div>
               <div className="flex items-center gap-2"><Users size={24} /><span className="font-serif font-bold text-xl">GLOSSIER</span></div>
               <div className="flex items-center gap-2"><Zap size={24} /><span className="font-serif font-bold text-xl">AESOP</span></div>
-              <div className="flex items-center gap-2"><Sparkles size={24} /><span className="font-serif font-bold text-xl">BYREDO</span></div>
+              <div className="flex items-center gap-2"><Star size={24} /><span className="font-serif font-bold text-xl">BYREDO</span></div>
             </div>
           </div>
 

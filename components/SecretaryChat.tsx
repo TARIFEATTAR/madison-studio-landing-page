@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { GoogleGenAI } from "@google/genai";
-import { X, ArrowUp, Sparkles, Minimize2, Loader2 } from 'lucide-react';
+import { X, ArrowUp, MessageSquare, Minimize2, Loader2, Feather } from 'lucide-react';
 
 interface Message {
   role: 'user' | 'model';
@@ -132,8 +132,8 @@ const SecretaryChat: React.FC = () => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`fixed bottom-6 right-6 z-50 group flex items-center gap-3 transition-all duration-500 ${isOpen
-            ? 'opacity-0 pointer-events-none translate-y-4'
-            : 'opacity-100 translate-y-0'
+          ? 'opacity-0 pointer-events-none translate-y-4'
+          : 'opacity-100 translate-y-0'
           }`}
         aria-label="Open Concierge"
       >
@@ -141,15 +141,15 @@ const SecretaryChat: React.FC = () => {
           Concierge
         </span>
         <div className="bg-ink-black text-white p-3 rounded-full shadow-lg border border-brass/50 group-hover:bg-brass group-hover:text-ink-black transition-colors duration-300">
-          <Sparkles size={18} strokeWidth={1.5} />
+          <MessageSquare size={18} strokeWidth={1.5} />
         </div>
       </button>
 
       {/* Elegant Chat Window */}
       <div
         className={`fixed bottom-0 sm:bottom-6 right-0 sm:right-6 z-50 w-full sm:w-[380px] bg-warm-white sm:rounded-sm shadow-2xl border-t sm:border border-stone-200 flex flex-col transition-all duration-500 origin-bottom-right overflow-hidden ${isOpen
-            ? 'h-[85vh] sm:h-[600px] opacity-100 translate-y-0'
-            : 'h-0 opacity-0 translate-y-12 pointer-events-none'
+          ? 'h-[85vh] sm:h-[600px] opacity-100 translate-y-0'
+          : 'h-0 opacity-0 translate-y-12 pointer-events-none'
           }`}
       >
         {/* Header */}
@@ -177,13 +177,13 @@ const SecretaryChat: React.FC = () => {
             >
               <div
                 className={`max-w-[85%] px-5 py-4 text-sm leading-relaxed shadow-sm ${msg.role === 'user'
-                    ? 'bg-ink-black text-white rounded-t-xl rounded-bl-xl border border-ink-black'
-                    : 'bg-warm-white text-ink-black border border-stone-200 rounded-t-xl rounded-br-xl'
+                  ? 'bg-ink-black text-white rounded-t-xl rounded-bl-xl border border-ink-black'
+                  : 'bg-warm-white text-ink-black border border-stone-200 rounded-t-xl rounded-br-xl'
                   }`}
               >
                 {msg.role === 'model' && idx === 0 && (
                   <div className="flex items-center gap-1.5 mb-2 opacity-100 text-brass">
-                    <Sparkles size={12} fill="currentColor" />
+                    <Feather size={12} strokeWidth={2} />
                     <span className="text-[10px] font-bold uppercase tracking-widest">Madison</span>
                   </div>
                 )}

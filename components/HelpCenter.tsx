@@ -5,7 +5,7 @@ import Button from './ui/Button';
 import {
   Search, ChevronDown, ChevronRight, BookOpen, CreditCard,
   PenTool, Layers, Image as ImageIcon, Calendar, ShoppingBag,
-  Users, Link as LinkIcon, Activity, AlertCircle, Sparkles, Shield,
+  Users, Link as LinkIcon, Activity, AlertCircle, Brain, Shield,
   LayoutGrid
 } from 'lucide-react';
 
@@ -546,7 +546,7 @@ const faqData: FAQSection[] = [
   {
     id: 'ai-quality',
     title: 'AI & Content Quality',
-    icon: Sparkles,
+    icon: Brain,
     questions: [
       {
         q: "How does Madison's AI work?",
