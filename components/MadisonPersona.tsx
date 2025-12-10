@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
+import { CheckCircle2, ShieldCheck, Lightbulb } from 'lucide-react';
 import ScrollReveal from './ui/ScrollReveal';
 
 const MadisonPersona: React.FC = () => {
@@ -20,21 +20,21 @@ const MadisonPersona: React.FC = () => {
         // As we scroll down, rect.top decreases.
         // We move the background DOWN relative to the container (positive Y)
         // This counteracts the upward scroll of the container, creating the "slower" parallax illusion.
-        
+
         const scrollDelta = viewportHeight - rect.top;
-        
+
         // Primary Pattern Layer (Slow movement)
         if (bgRef.current) {
-          const speed = 0.08; 
+          const speed = 0.08;
           // Start with a negative offset so it's centered correctly
           bgRef.current.style.transform = `translate3d(0, ${scrollDelta * speed}px, 0)`;
         }
-        
+
         // Secondary Orb Layer (Slightly different speed for depth)
         if (orbRef.current) {
-           const speed = 0.04;
-           // Move slightly in reverse or slower to create layer separation
-           orbRef.current.style.transform = `translate3d(0, ${scrollDelta * -speed}px, 0)`;
+          const speed = 0.04;
+          // Move slightly in reverse or slower to create layer separation
+          orbRef.current.style.transform = `translate3d(0, ${scrollDelta * -speed}px, 0)`;
         }
       }
     };
@@ -49,29 +49,29 @@ const MadisonPersona: React.FC = () => {
     <section ref={sectionRef} className="py-32 bg-luxury-tan text-ink-black overflow-hidden relative">
       {/* Decorative background element - Parallax Layer 1 (Pattern) */}
       {/* Increased height and negative top to ensure coverage during parallax movement */}
-      <div 
+      <div
         ref={bgRef}
         className="absolute -top-40 right-0 w-full md:w-3/4 h-[150%] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none will-change-transform"
       ></div>
-      
+
       {/* Decorative background element - Parallax Layer 2 (Subtle Orb) */}
-      <div 
+      <div
         ref={orbRef}
         className="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-deep-green/5 rounded-full blur-3xl pointer-events-none will-change-transform mix-blend-multiply"
       ></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-20">
-          
+
           {/* Left: Copy */}
           <div className="flex-1 space-y-10">
             <ScrollReveal animation="slide-up">
               <h2 className="font-serif text-5xl md:text-6xl text-ink-black leading-tight">
-                Meet Madison, your <br/>
+                Meet Madison, your <br />
                 <span className="italic text-muted-gold">editorial director.</span>
               </h2>
             </ScrollReveal>
-            
+
             <ScrollReveal delay="200ms" animation="slide-up">
               <div className="space-y-8 text-ink-black/70 text-2xl font-light leading-relaxed">
                 <p>
@@ -103,7 +103,7 @@ const MadisonPersona: React.FC = () => {
 
                 {/* Body */}
                 <div className="p-8 space-y-8">
-                  
+
                   {/* Voice Analysis */}
                   <div>
                     <div className="flex justify-between items-end mb-3">
@@ -169,7 +169,7 @@ const MadisonPersona: React.FC = () => {
               {/* Floating Insight Card */}
               <div className="absolute -bottom-6 -right-6 md:-right-12 w-64 bg-deep-green text-white p-5 rounded-sm shadow-xl border border-stone-700 z-20 animate-slide-up">
                 <div className="flex items-start gap-3">
-                  <Sparkles size={20} className="text-muted-gold flex-shrink-0 mt-0.5" />
+                  <Lightbulb size={20} className="text-muted-gold flex-shrink-0 mt-0.5" />
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-widest text-muted-gold block mb-1">Strategic Insight</span>
                     <p className="text-sm font-medium leading-relaxed">

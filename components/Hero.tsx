@@ -11,8 +11,8 @@ const Hero: React.FC = () => {
       />
 
       {/* Overlays */}
-      {/* Mobile: Strong vertical fade for legibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-vellum/90 via-vellum/80 to-vellum/60 lg:hidden" />
+      {/* Mobile: Strong vertical fade for legibility, fading to transparent at bottom to reveal image */}
+      <div className="absolute inset-0 bg-gradient-to-b from-vellum/95 via-vellum/70 to-transparent lg:hidden" />
 
       {/* Desktop: Elegant horizontal fade (solid left to transparent right) */}
       <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-vellum via-vellum/90 via-40% to-transparent" />

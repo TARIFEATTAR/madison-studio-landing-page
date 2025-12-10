@@ -8,11 +8,11 @@
   <meta name="description"
     content="Madison Studio turns your scattered brand knowledge, content ideas, and product data into a single, living system." />
 
-  <!-- Google Fonts: Cormorant Garamond (Headlines), Lato (Body), Crimson Text (Accents) -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet">
 
   <!-- Tailwind CSS -->
@@ -21,41 +21,41 @@
     tailwind.config = {
       theme: {
         extend: {
+          colors: {
+            'parchment': '#F5F1E8',
+            'parchment-cream': '#F5F1E8',
+            'warm-white': '#F9F5F0',
+            'ink-black': '#1A1816',
+            'charcoal': '#363636',
+            'deep-green': '#1E2922',
+            'brass': '#BFA15F',
+            'brass-glow': '#E3C684',
+            'muted-gold': '#C5A059',
+            'soft-gray': '#E5E5E5',
+            'luxury-tan': '#D2B48C',
+            'vellum': '#F5F1E8',
+            'stone': '#D6D3D1',
+            'sage': '#78866B',
+          },
           fontFamily: {
             serif: ['"Cormorant Garamond"', 'serif'],
-            sans: ['"Lato"', 'sans-serif'],
+            sans: ['Lato', 'sans-serif'],
             accent: ['"Crimson Text"', 'serif'],
+            inter: ['Inter', 'sans-serif'],
+            cormorant: ['"Cormorant Garamond"', 'serif'],
+            lato: ['Lato', 'sans-serif'],
+            crimson: ['"Crimson Text"', 'serif'],
+            'crimson-text': ['"Crimson Text"', 'serif'],
           },
-          colors: {
-            // Core Palette
-            'ink-black': '#1A1816',
-            'charcoal': '#2F2A26',
-            'vellum': '#F5F1E8',
-            'parchment': '#FFFCF5',
-            'brass': '#B8956A',
-            'stone': '#E5DFD1',
-            // Semantic Colors
-            'sage': '#8B9474',
-            'amber': '#C4975C',
-            'rust': '#A85C5C',
-            // Legacy mappings for compatibility
-            'warm-white': '#F5F1E8',
-            'cream': '#FFFCF5',
-            'muted-gold': '#B8956A',
-            'gold': '#B8956A',
-            'soft-gray': '#2F2A26',
-            'luxury-tan': '#E5DFD1',
-            'navy-dark': '#1A1816',
-            'deep-green': '#1A1816',
+          backgroundImage: {
+            'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
           },
           animation: {
-            'fade-in': 'fadeIn 0.8s ease-out forwards',
+            'fade-in': 'fadeIn 0.5s ease-out forwards',
             'slide-up': 'slideUp 0.8s ease-out forwards',
-            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'float': 'float 6s ease-in-out infinite',
-            'float-delayed': 'float 6s ease-in-out 3s infinite',
+            'shimmer': 'shimmer 2.5s linear infinite',
             'scroll': 'scroll 30s linear infinite',
-            'shimmer': 'shimmer 2.5s infinite',
+            'ping': 'ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite',
           },
           keyframes: {
             fadeIn: {
@@ -66,23 +66,20 @@
               '0%': { opacity: '0', transform: 'translateY(20px)' },
               '100%': { opacity: '1', transform: 'translateY(0)' },
             },
-            float: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-10px)' },
+            shimmer: {
+              '0%': { backgroundPosition: '-200% 0' },
+              '100%': { backgroundPosition: '200% 0' },
             },
             scroll: {
               '0%': { transform: 'translateX(0)' },
               '100%': { transform: 'translateX(-50%)' },
-            },
-            shimmer: {
-              '0%': { backgroundPosition: '-200% 0' },
-              '100%': { backgroundPosition: '200% 0' },
             }
           }
-        },
-      },
+        }
+      }
     }
   </script>
+
   <style>
     body {
       background-color: #F5F1E8;
@@ -97,7 +94,6 @@
     /* Glass panel effect */
     .glass-panel {
       background: rgba(255, 252, 245, 0.9);
-      /* Parchment with opacity */
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
@@ -144,18 +140,34 @@
     .stagger-delay-4 {
       transition-delay: 400ms;
     }
+
+    /* Custom Scrollbar for Chat */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: rgba(182, 157, 116, 0.3);
+      /* Brass with opacity */
+      border-radius: 20px;
+    }
   </style>
+
   <script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+  {
+    "imports": {
+      "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+      "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+      "react/": "https://aistudiocdn.com/react@^19.2.0/",
+      "react": "https://aistudiocdn.com/react@^19.2.0",
+      "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+    }
   }
-}
-</script>
+  </script>
 </head>
 
 <body>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import TrustTicker from './components/TrustTicker';
 import ProblemSection from './components/ProblemSection';
 import FeaturesSection from './components/FeaturesSection';
 import HowItWorks from './components/HowItWorks';
@@ -21,7 +20,6 @@ const Home: React.FC = () => (
     <Header />
     <main className="flex-grow">
       <Hero />
-      <TrustTicker />
       <ProblemSection />
       <FeaturesSection />
       <HowItWorks />
