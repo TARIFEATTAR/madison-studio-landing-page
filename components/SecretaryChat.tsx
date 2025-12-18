@@ -163,10 +163,10 @@ const SecretaryChat: React.FC = () => {
       {/* Refined Concierge Trigger */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom - 6 right - 6 z - 50 group flex items - center gap - 3 transition - all duration - 500 ${isOpen
+        className={`fixed bottom-6 right-6 z-50 group flex items-center gap-3 transition-all duration-500 ${isOpen
           ? 'opacity-0 pointer-events-none translate-y-4'
           : 'opacity-100 translate-y-0'
-          } `}
+          }`}
         aria-label="Open Concierge"
       >
         <span className="hidden md:block font-serif italic text-lg text-ink-black pr-2 border-r border-brass/30">
@@ -179,10 +179,10 @@ const SecretaryChat: React.FC = () => {
 
       {/* Elegant Chat Window */}
       <div
-        className={`fixed bottom - 0 sm: bottom - 6 right - 0 sm: right - 6 z - 50 w - full sm: w - [380px] bg - warm - white sm: rounded - sm shadow - 2xl border - t sm:border border - stone - 200 flex flex - col transition - all duration - 500 origin - bottom - right overflow - hidden ${isOpen
+        className={`fixed bottom-0 sm:bottom-6 right-0 sm:right-6 z-50 w-full sm:w-[380px] bg-warm-white sm:rounded-sm shadow-2xl border-t sm:border border-stone-200 flex flex-col transition-all duration-500 origin-bottom-right overflow-hidden ${isOpen
           ? 'h-[85vh] sm:h-[600px] opacity-100 translate-y-0'
           : 'h-0 opacity-0 translate-y-12 pointer-events-none'
-          } `}
+          }`}
       >
         {/* Header */}
         <div className="bg-warm-white px-6 py-4 border-b border-stone-100 flex justify-between items-center flex-shrink-0">
@@ -205,13 +205,13 @@ const SecretaryChat: React.FC = () => {
           {messages.map((msg, idx) => (
             <div
               key={idx}
-              className={`flex flex - col ${msg.role === 'user' ? 'items-end' : 'items-start'} `}
+              className={`flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'}`}
             >
               <div
-                className={`max - w - [85 %] px - 5 py - 4 text - sm leading - relaxed shadow - sm ${msg.role === 'user'
+                className={`max-w-[85%] px-5 py-4 text-sm leading-relaxed shadow-sm ${msg.role === 'user'
                   ? 'bg-ink-black text-white rounded-t-xl rounded-bl-xl border border-ink-black'
                   : 'bg-warm-white text-ink-black border border-stone-200 rounded-t-xl rounded-br-xl'
-                  } `}
+                  }`}
               >
                 {msg.role === 'model' && idx === 0 && (
                   <div className="flex items-center gap-1.5 mb-2 opacity-100 text-brass">
