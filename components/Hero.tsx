@@ -32,19 +32,16 @@ const Hero: React.FC = () => {
 
             {/* Headline - Option C: Editorial Luxury */}
             <h1 className="font-serif text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tight text-ink-black leading-[1.1]">
-              The Editorial Director<br />
-              <span className="italic text-charcoal">Your Brand Deserves.</span>
+              Your brand&apos;s voice.<br />
+              <span className="italic text-charcoal">Finally captured.</span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-lg lg:text-xl text-charcoal/80 leading-relaxed max-w-xl">
-              Meet Madison—an AI-powered content studio that learns your brand voice, crafts master content, and multiplies it across every channel with museum-quality precision.
+              Madison is the AI ghostwriter trained on legendary copywriters, not internet marketing. For brands that refuse to sound generic.
             </p>
 
-            {/* Subheadline */}
-            <p className="font-accent italic text-lg text-charcoal/70">
-              AI-powered brand intelligence for businesses who refuse to sound like everyone else.
-            </p>
+
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
